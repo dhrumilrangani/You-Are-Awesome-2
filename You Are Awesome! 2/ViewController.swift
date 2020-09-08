@@ -9,12 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var messageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        messageLabel.text="Guess What?"
     }
 
-
+    @IBAction func messageButtonPressed(_ sender: Any) {
+        print("Button Was Pressed")
+        messageLabel.text="You Are Awesome!"
+    }
+    
 }
 
