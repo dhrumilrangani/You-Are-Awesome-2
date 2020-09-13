@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var imageNumber = 0
+    var messageNumber = 0
+    
+    
     
     
     override func viewDidLoad() {
@@ -20,9 +23,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func messageButtonPressed(_ sender: Any) {
+        print("Button was pressed")
+        
+        let message=["Act as if what you do makes a difference. It does.",
+                     "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                     "Never bend your head. Always hold it high. Look the world straight in the eye.",
+                     "Believe you can and you're halfway there."]
+        messageLabel.text=message[messageNumber]
+        messageNumber+=1
+        if messageNumber==4 {
+            messageNumber=0
+        }
+        
+        
         print(imageNumber)
 //        let imageName="image"+String(imageNumber)
         let imageName="image\(imageNumber)"
+        
         imageView.image=UIImage(named: imageName)
         imageNumber=imageNumber+1
         if imageNumber==10 {
