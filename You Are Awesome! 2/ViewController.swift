@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var totalSounds = 6
     var totalImages = 9
     var audioPlayer : AVAudioPlayer!
+    @IBOutlet weak var playSoundSwitch: UISwitch!
     
     
     
@@ -63,7 +64,15 @@ class ViewController: UIViewController {
         imageView.image = UIImage(named: "image\(imageNumber)")
         
         soundNumber  = nonRepeatingRandom(originalNumber: soundNumber, upperlimit: totalSounds-1)
-        playSound(name: "sound\(soundNumber)")
+        if playSoundSwitch.isOn {
+            playSound(name: "sound\(soundNumber)")
+        }
         
-}
+    }
+    
+    @IBAction func playSoundToggled(_ sender: UISwitch) {
+        if !sender.isOn && audioPlayer != nil{
+            audioPlayer.stop()
+        } 
+    }
 }
